@@ -38,6 +38,7 @@
         "type_traits": "cpp",
         "typeinfo": "cpp",
         "vector": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "*.ipp": "cpp"
     }
 }

@@ -3,15 +3,12 @@
 
 #include <string>
 using namespace std;
-namespace type{
 
-enum RequestFuncType{
+enum RequestType{
     GET,  
     POST,
     PUT,
     DELETE
-};
-
 };
 
 #endif

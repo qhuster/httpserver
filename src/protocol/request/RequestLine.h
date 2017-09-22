@@ -1,11 +1,11 @@
 #ifndef __HTTP_REQUEST_H__
 #define __HTTP_REQUEST_H__
 
-#include "../com/Type.h"
-#include <string>
+#include "RequestType.h"
+#include "../../util/StringUtil.h"
+#include <vector>
 
 using namespace std;
-using namespace type;
 
 class HttpProtocal;
 
@@ -17,12 +17,12 @@ public:
     /** default construction*/
     RequestLine();
 
-    RequestLine(RequestFuncType, std::string url, std::string version);
+    RequestLine(RequestType requestType, std::string url, std::string version);
 
 
 public:
     /**get request function type*/
-    RequestFuncType GetRequestFuncType();
+    RequestType GetRequestType();
 
     /**get linked url*/
     string GetUrl();
@@ -40,7 +40,7 @@ private:
 
 protected:
 
-    RequestFuncType m_requestFuncType;
+    RequestType m_requestType;
 
     string m_url;
 

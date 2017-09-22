@@ -1,29 +1,26 @@
 #include "RequestLine.h"
-#include "HttpProtocal.h"
-#include "../util/StringUtil.h"
-#include <vector>
 
 using namespace http;
 
 RequestLine::RequestLine(){
-    m_requestFuncType = RequestFuncType::GET;
+    m_requestType = RequestType::GET;
     m_url = "http:\\";
     m_version = HttpProtocal::DEFAULT_VERSION;
 }
 
-RequestLine::RequestLine(RequestFuncType requestFuncType, std::string url, std::string version){
-    m_requestFuncType = requestFuncType;
+RequestLine::RequestLine(RequestType requestType, std::string url, std::string version){
+    m_requestType = requestType;
     m_url = url;
     m_version = version;
 }
 
 /**
- * @name GetRequestFunc
+ * @name GetRequestType
  * @param
- * @return RequestLine::RequestFunc request func type
+ * @return RequestType request func type
  */ 
-RequestFuncType RequestLine::GetRequestFuncType(){
-    return m_requestFuncType;
+RequestType RequestLine::GetRequestType(){
+    return m_requestType;
 }
 
 /**
@@ -52,9 +49,9 @@ RequestLine RequestLine::Parse(std::string requestLineStr) {
     
     int i = 0;
 
-    string requestFuncTypeStr = requestLineInfo[i]; 
-    RequestFuncType requestFuncType(RequestFuncType::GET);
-    RequestLine requestLine(requestFuncType, requestLineInfo[i++], requestLineInfo[i++]);
+    string requestTypeStr = requestLineInfo[i]; 
+    RequestType requestType(RequestType::GET);
+    RequestLine requestLine(requestType, requestLineInfo[i++], requestLineInfo[i++]);
 
     return requestLine;
 }
